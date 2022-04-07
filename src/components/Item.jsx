@@ -1,0 +1,35 @@
+import React from "react";
+import {CardGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button} from 'reactstrap';
+
+export default function Item ({id, nombre, descripcion, precio, img  }) {
+    
+    return (
+        <div>
+        <CardGroup>
+            <Card key={id}>
+                <CardImg
+                alt="Card image cap"
+                src={img}
+                top
+                width="100%"
+                />
+                <CardBody>
+                <CardTitle tag="h5">
+                    {nombre}
+                </CardTitle>
+                <CardSubtitle
+                    className="mb-2 text-muted"
+                    tag="h6"
+                >
+                    {descripcion}
+                </CardSubtitle>
+                <CardText>
+                    {precio}
+                </CardText>
+                </CardBody>
+            </Card>
+          
+            </CardGroup>
+        </div>
+    )
+}
