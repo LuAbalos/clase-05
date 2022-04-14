@@ -1,16 +1,17 @@
 import React, {useState} from "react" //6.8K (gzipped:2.7K);
+import ItemListContainer from "./ItemListContainer";
 
-const ItemCount = () => {
-    const [contador, setContador] = useState( 1 );
-
+const ItemCount = ({initial,stock,onAdd}) => {
+    const [contador, setContador] = useState( initial );
+    
     const increment = () => {
-        if (contador < 5 ) {
-            setContador(contador+1)
+        if (contador < stock) {
+            setContador(contador +1)
         }
     }
 
     const decrement = () => {
-        if (contador > 1 ){
+        if (contador > initial ){
             setContador(contador -1)
         }
     }
@@ -20,7 +21,7 @@ const ItemCount = () => {
                     <button onClick={decrement} className='buttons-counters'> - </button>
                     {contador}
                     <button onClick={increment} className='buttons-counters'> + </button>
-                    <button className='buttons-counters' > Agregar al carrito </button>
+                    <button className='buttons-counters' onClick={() => onAdd(contador)} > Agregar al carrito </button>
                 </div>
             </div>
         )
